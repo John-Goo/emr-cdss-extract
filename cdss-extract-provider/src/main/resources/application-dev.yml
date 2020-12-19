@@ -1,0 +1,48 @@
+#server
+server:
+  port: 8081
+#logging
+logging:
+  config: classpath:logback.xml
+#jasypt
+jasypt:
+  encryptor:
+    password: 7T0sU6q%XY$Al39LP4BJUgwd$hGy*Fk81
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql.wit2cloud.com:3306/emr-cdss-extract?useUnicode=true&characterEncoding=utf-8&useTimezone=true&serverTimezone=GMT%2B8
+    username: root
+    password: wit2cloud999
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: DatebookHikariCP
+  data:
+    mongodb:
+      authentication-database: admin
+      database: workflow-audit
+      username: root
+      password: wit2cloud2020
+      host: 106.53.241.97
+      port: 27017
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.yx.cdss.extract.model.mapper
+
+
+
+
+redis:
+  database: 0  #数据库索引(默认为0)
+  host: 127.0.0.1
+  port: 6379  #默认链接端口
+  password:  #默认为空
+  lettuce:
+  pool:
+  max-active: 8 #最大链接池
+  max-wait: -1 #最大阻赛等待时间（使用负值没有限制）默认为-1
+  max-idle: 8 #连接池中的最大空闲连接 默认 8
+  min-idle: 0
